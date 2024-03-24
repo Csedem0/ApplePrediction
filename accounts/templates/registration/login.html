@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link href="./Now UI Kit Pro by Creative Tim_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'all.css' %}" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'now-ui-kit.minc8c4.css' %}" rel="stylesheet">
+
+    <link href="{% static 'demo.css' %}" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+        }
+
+        nav a:hover {
+            background-color: #f8f8f8;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+        }
+
+        .navbar-toggler {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 20px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            .navbar-nav.show {
+                display: flex;
+            }
+
+            .navbar-nav a {
+                border-top: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white fixed-top " color-on-scroll="500" >
+        <div class="container" style="height: fit-content;">
+            <div class="navbar-translate">
+                <a class="navbar-brand" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 20px;" href="#" rel="tooltip" title="" data-placement="bottom" target="_blank" data-original-title="Designed by Invision. Coded by Creative Tim">
+                    AI MODEL
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar top-bar"></span>
+                    <span class="navbar-toggler-bar middle-bar"></span>
+                    <span class="navbar-toggler-bar bottom-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-nav">
+                <!-- Update the href attributes in the following li elements with the correct URLs -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'result' %}" class="nav-link">Result</a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
+                    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                    {% endif %}
+                    <!-- Add more li elements as needed with the correct URLs -->
+            </div>
+        </div>
+    </nav>
+    <div class="registration-form">
+    <h3>Login</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Login</button>
+    </form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarNav = document.querySelector('.navbar-nav');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarNav.classList.toggle('show');
+        });
+    });
+</script>
+</body>
+</html>

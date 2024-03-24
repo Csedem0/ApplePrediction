@@ -1,0 +1,52 @@
+
+.registration-form {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.registration-form h2 {
+    text-align: center;
+    color: #333;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.registration-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style specific elements within the form */
+.registration-form input[type="text"],
+.registration-form input[type="password"] {
+    /* Add your styles for text and password inputs */
+    background-color: #f8f8f8;
+}
+
+.registration-form button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.registration-form button:hover {
+    background-color: #2980b9;
+}
+
+.error-message{
+    background: red;
+}
