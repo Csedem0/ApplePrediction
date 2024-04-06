@@ -84,6 +84,9 @@ DATABASES = {
 }
 
 database_url = os.environ.get("DATABASE_URL")
+# Decode byte string to regular string if necessary
+if isinstance(database_url, bytes):
+    database_url = database_url.decode('utf-8')
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
